@@ -11,10 +11,12 @@ async function handleMessage(e) {
     document.getElementById('msg').value = ""
     console.log('msg', msg, token)
     try {
-        let response = await axios.post('http://localhost:3003/message/', { msg }, { headers: { "Authorization": token } })
-        console.log('msg resp...', response.data.response)
-        setMsgInLocal(response.data.response)
-        getMsgFromLocal()
+        if (msg) {
+            let response = await axios.post('http://localhost:3000/message/', { msg }, { headers: { "Authorization": token } })
+            console.log('msg resp...', response.data.response)
+            setMsgInLocal(response.data.response)
+            getMsgFromLocal()
+        }
     } catch (err) {
         console.log(err)
     }
@@ -98,4 +100,4 @@ function setMsgInLocal(msg) {
         oldMessage.push(newMessage)
         localStorage.setItem('messages', JSON.stringify(oldMessage))
     }
-}
+} 

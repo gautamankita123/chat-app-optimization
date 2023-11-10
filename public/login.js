@@ -24,16 +24,16 @@ async function login(user) {
         if (response.status == 200) {
             location.href = '../view/chat.html';
         }
-    }
-    catch (err) {
+    } catch (err) {
         console.log('err', err)
         success = err.response.data.success
         msg.innerHTML = err.response.data.message
     }
     if (success) {
-        sessionStorage.setItem('token', token)
+        // sessionStorage.setItem('token',token)
+        localStorage.setItem('token', token)
         alert('Login successful!')
-        location.assign('chat.html')
+        location.assign('chat2.html')
     }
 
 

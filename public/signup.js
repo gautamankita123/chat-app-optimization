@@ -25,6 +25,7 @@ async function signup(user) {
         console.log('resp', response)
         if (response.status == 201) {
             location.href = '../view/login.html';
+
         }
     } catch (err) {
         console.log('err', err)
