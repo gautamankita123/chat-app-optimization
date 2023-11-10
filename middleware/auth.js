@@ -3,7 +3,7 @@ const User = require('../models/users')
 const Login = require('../models/login')
 
 const authonticate = async (req, res, next) => {
-    let token = req.headers.authorization;
+    let token = req.headers.authorization || ''
     console.log('token..', token)
     let { id } = jwt.verify(token, process.env.JWT_SECRETKEY)
     console.log('userId', id)
