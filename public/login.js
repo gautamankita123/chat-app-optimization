@@ -21,9 +21,6 @@ async function login(user) {
         console.log('resp..', response)
         token = response.data.token;
         console.log(token)
-        if (response.status == 200) {
-            location.herf = '../view/chat.html';
-        }
         localStorage.setItem('rootAdmin', response.data.userId)
     } catch (err) {
         console.log('err', err)
@@ -33,7 +30,7 @@ async function login(user) {
     if (success) {
         localStorage.setItem('token', token)
         alert('Login successful!')
-        location.assign('chat2.html')
+        location.assign('chat.html')
     }
 
 
