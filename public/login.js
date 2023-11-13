@@ -20,6 +20,9 @@ async function login(user) {
         let response = await axios.post('http://localhost:3000/user/login', { user })
         console.log('resp..', response)
         token = response.data.token;
+        if (response.status == 200) {
+            location.href = '../view/chat.html';
+        }
         console.log(token)
         localStorage.setItem('rootAdmin', response.data.userId)
     } catch (err) {

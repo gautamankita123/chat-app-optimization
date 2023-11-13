@@ -1,18 +1,3 @@
-const socket = io();
-
-const groupDetail = JSON.parse(localStorage.getItem('groupDetail'))
-
-socket.on('connect', () => {
-    console.log('Server is Printing it to the client side', socket.id)
-    const groupId = groupDetail.groupId
-    socket.emit('joinRoom', groupId)
-})
-
-socket.on('receivedMsg', (msg) => {
-    console.log('soMsg', msg)
-    printMsg(msg);
-});
-
 let token = localStorage.getItem('token')
 let btn = document.getElementById('createBtn')
 btn.addEventListener('click', handleClick)
